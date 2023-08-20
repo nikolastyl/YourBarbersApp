@@ -1,24 +1,41 @@
-import logo from './logo.svg';
+import logo from './images/logo.svg';
 import './App.css';
+import { Login } from "./Login";
+import { Register } from "./Register";
+import {BasicUser1stPage} from "./BasicUser1stPage";
+import {Appointment} from "./Appointment";
+
+import {useState} from "react";
+
 
 function App() {
+
+  const [currentForm, setCurrentForm] = useState('login');
+  const [usersEmail,setUsersEmail] = useState(null);
+
+
+  const toggleForm = (formName,param1) => {
+    setCurrentForm(formName);
+    setUsersEmail(param1)
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        {currentForm === 'login' ? (
+            <Login onFormSwitch={toggleForm} />
+        ) : currentForm==='register'?(
+            <Register onFormSwitch={toggleForm}/>
+        ): currentForm==='basicUser1stPage'?(
+            <BasicUser1stPage onFormSwitch={toggleForm}
+            usersEmail={usersEmail}
+            />
+        ): currentForm==='appointment'?(
+            <Appointment onFormSwitch={toggleForm}
+            usersEmail={usersEmail}
+            />
+        ): null}
+      </div>
   );
 }
 
