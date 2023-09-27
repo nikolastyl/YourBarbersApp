@@ -1,0 +1,421 @@
+/*@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html,body{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    background: linear-gradient(-135deg, #fff,#DC0808,#DC0808,#fff,#4158d0,#4158d0,#fff);
+    animation: gradientAnimation 20s linear infinite;
+    background-size: 150% 150%;
+
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    50%{
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+
+    }
+}
+
+
+::selection{
+    background: #4158d0;
+    color: #fff;
+}
+.wrapper{
+    width: 380px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+.wrapper .title{
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 100px;
+    color: #fff;
+    user-select: none;
+    border-radius: 15px 15px 0 0;
+    background: linear-gradient(-135deg, #4158d0,#DC0808);
+}
+.wrapper ul{
+    border: 4px solid #000;
+    padding: 10px;
+    list-style-type: none;
+    height: 300px;
+    overflow-y: scroll;
+
+}
+.wrapper li{
+    border: 2px solid #000;
+    padding: 10px;
+    list-style-type: none;
+    margin: 5px 0;
+}
+.wrapper form{
+    padding: 10px 30px 50px 30px;
+}
+.wrapper form .field{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+.wrapper form .field input,
+.wrapper form .field button{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    font-size: 17px;
+    padding-left: 20px;
+    border: 1px solid lightgrey;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+.wrapper form .field input:focus,
+form .field input:valid{
+    border-color: #4158d0;
+}
+.wrapper form .field label{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    color: #999999;
+    font-weight: 400;
+    font-size: 17px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+form .field input:focus ~ label,
+form .field input:valid ~ label{
+    top: 0%;
+    font-size: 16px;
+    color: #4158d0;
+    background: #fff;
+    transform: translateY(-50%);
+}
+form .content{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    align-items: center;
+    justify-content: space-around;
+
+}
+form .content .checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form .content input{
+    width: 15px;
+    height: 15px;
+    background: red;
+}
+form .content label{
+    color: #262626;
+    user-select: none;
+    padding-left: 5px;
+}
+form .content .pass-link{
+    color: black;
+}
+form .field button{
+    color: #fff;
+    border: none;
+    padding-left: 0;
+    margin-top: -10px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    background: linear-gradient(-135deg, #4158d0,#DC0808);
+    transition: all 0.3s ease;
+}
+form .field button:active{
+    transform: scale(0.95);
+}
+form .signup-link{
+    color: #262626;
+    margin-top: 20px;
+    text-align: center;
+}
+form .pass-link a,
+form .signup-link a{
+    color: #4158d0;
+    text-decoration: none;
+}
+form .pass-link a:hover,
+form .signup-link a:hover{
+    text-decoration: underline;
+}
+.title2{
+    font-size: 35px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 100px;
+    color: #fff;
+    user-select: none;
+    border-radius: 10px 10px 10px 10px;
+    background: linear-gradient(-150deg,#ffffff, #4158d0,#DC0808, #4158d0);
+    border: solid 3px black;
+    margin-bottom: 30px;
+
+}
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    /*object-fit: cover;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);*/
+}
+.speech-bubble{
+    width: 180px;
+    height: 110px;
+
+}
+
+.book-infos-image {
+    width: 300px;
+    height: 200px;
+
+
+}
+
+.book-infos-button {
+    background-color: #f3e3b6;
+    margin: 15px;
+}
+
+.book-infos-button h3{
+    text-align: center;
+
+}
+
+/* styles.css */
+.speech-bubble-container {
+    position: relative;
+}
+
+.image-container2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    opacity: 0;
+    transition: opacity 90ms ease-in-out;
+}
+
+
+.speech-text {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-40%, -40%);
+    font-size: 17px;
+    font-family: Chalkduster, fantasy;
+    color: #000000;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.body2{
+
+}
+
+.body2:hover .speech-text,
+.body2:hover .image-container2
+{
+    opacity: 1;
+}
+
+.buttonsYes-No{
+    font-size:20px;
+    width: 120px;
+    height: 40px;
+    background: linear-gradient(-135deg, #4158d0,#ffffff,#DC0808);
+    margin: 15px;
+
+}
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rbc-calendar {
+    border: 5px dashed black
+}
+
+.rbc-toolbar {
+    border: 2px solid black
+}
+
+.rbc-row-bg {
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+}
+
+.rbc-time-header {
+    border-bottom-width: 2px; /* Αλλάξτε την τιμή σύμφωνα με το επιθυμητό πάχος */
+}
+
+.rbc-time-content {
+    border-top-width: 2px; /* Αλλάξτε την τιμή σύμφωνα με το επιθυμητό πάχος */
+}
+
+.rbc-time-content{
+    font-size: 20px;
+}
+
+/* Στυλ για το input type "file" */
+.uploadInput {
+      display: none;  /*Κρύψτε το προεπιλεγμένο input */
+}
+
+.uploadImage {
+    font-size:20px;
+    width: 120px;
+    height: 60px;
+    background: linear-gradient(-135deg, #4158d0,#ffffff,#DC0808);
+    margin: 15px;
+    display: inline-block;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.uploadImage:hover {
+    background-color: #3446a8;
+}
+
+.upload-label {
+    font-size: 17px;
+    text-align: center;
+    color: #999999;
+    margin-top: 5px;
+    align-items: center;
+}
+.grayed-out {
+    background-color: gray;
+}
+
+/*appointment list with x button*/
+
+.appointment-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.appointment-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #000;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.appointment-info {
+    flex: 1;
+}
+
+.appointment-info p {
+    margin: 0;
+}
+
+.appointment-list button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: red;
+}
+
+/* Προσαρμογή του στύλ του Modal με την κλάση "custom-modal" */
+.custom-modal {
+    background-color: white; /* Φόντο */
+    border-radius: 8px; /* Γωνιοκαμπύλη */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Σκιά */
+    padding: 20px; /* Ανακλύψτε το περιεχόμενο από τα περιθώρια */
+    width: 300px; /* Πλάτος */
+    max-width: 80%; /* Μέγιστο πλάτος */
+    position: absolute; /* Απόλυτη θέση στη μέση της οθόνης */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Στυλ για τον τίτλο του Modal */
+.custom-modal h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+/* Στυλ για το περιεχόμενο του Modal */
+.custom-modal div {
+    margin-bottom: 16px;
+}
+
+/* Στυλ για το κουμπί κλεισίματος του Modal */
+.custom-modal button {
+    background-color: #ccc;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 3px;
+}
+
+.custom-modal button:hover {
+    background-color: #aaa;
+}
+
+/* Στυλ για τα κουμπια στα στατιστικα */
+
+.statisticsBtn{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8ea9b9;
+    color: #000000;
+    border: #4b4a4a solid 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 600px;
+    height: 90px;
+    margin: 10px;
+}
+
+.statisticsBtn:hover{
+    background-color: #5f7785;
+
+}
